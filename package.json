@@ -1,0 +1,39 @@
+{
+  "name": "chess-ai",
+  "version": "1.0.0",
+  "description": "A simple ChessAI to create single player chess game",
+  "private": false,
+  "main": "./index.js",
+  "types": "./index.d.ts",
+  "scripts": {
+    "build": "rm -rf build && tsc && cp README.md package.json ./build/ && sed -i '8,10d' ./build/package.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mayank1513/chess-ai.git"
+  },
+  "keywords": [
+    "Chess",
+    "AI",
+    "JavaScript",
+    "TypeScript",
+    "Game",
+    "Single",
+    "Player",
+    "Game",
+    "mayank1513"
+  ],
+  "author": "Mayank Kumar Chaudhari <https://mayank-chaudhari.vercel.app/>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mayank1513/chess-ai/issues"
+  },
+  "homepage": "https://github.com/mayank1513/chess-ai#readme",
+  "peerDependencies": {
+    "chess.js": "^0.13.4"
+  },
+  "devDependencies": {
+    "@types/chess.js": "^0.13.3",
+    "typescript": "^4.8.4"
+  }
+}
