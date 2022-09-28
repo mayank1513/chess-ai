@@ -12,6 +12,11 @@ jobs:
           node-version: "16.x"
           registry-url: "https://registry.npmjs.org"
 
+      - name: Setup Git
+        run: |
+          git config --global user.name "Mayank"
+          git config --global user.email "mayank-automate@noreply.github.com"
+
       - name: Update version
         run: npm version patch
 
@@ -31,7 +36,7 @@ jobs:
 
       - name: Publish tag to npm
         if: contains(github.ref, 'tags')
-        working-directory: ./packages/ui/build
+        working-directory: ./build
         run: npm publish --access=public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
@@ -41,7 +46,7 @@ jobs:
           registry-url: "https://npm.pkg.github.com"
 
       - name: Publish tag to GPR
-        working-directory: ./packages/ui/build
+        working-directory: ./build
         run: npm publish --access=public
         env:
           NODE_AUTH_TOKEN: ${{ github.token }}
