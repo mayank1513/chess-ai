@@ -18,7 +18,7 @@ jobs:
           git config --global user.email "mayank-automate@noreply.github.com"
 
       - name: Update version
-        run: npm version patch
+        run: npm version patch -git-tag-version false
 
       - name: Install & build
         run: npm i && npm run build
