@@ -5,15 +5,26 @@ let _chess: ChessInstance;
 let _difficulty = 2;
 let _color = "w";
 
+/**
+ *
+ * @param chess ChessInstance created using new Chess() /chess.js/
+ * @param difficulty number usually between 0 and 2 inclusive, higher difficulty will increase computaion time
+ */
 export function initGame(chess: ChessInstance, difficulty: number) {
   _difficulty = difficulty;
   _chess = chess;
 }
 
+/**
+ *
+ * @param chess ChessInstance - not required if initGame is used before using this function
+ * @param difficulty number usually between 0 and 2 inclusive, higher difficulty will increase computaion time - not required if initGame is used before using this function
+ * @returns
+ */
 export function calculateBestMove(chess?: ChessInstance, difficulty?: number) {
   if (chess) _chess = chess;
   if (difficulty) _difficulty = difficulty;
-  if (typeof _chess == "undefined" || typeof difficulty == "undefined")
+  if (typeof _chess == "undefined" || typeof _difficulty == "undefined")
     throw new Error("Game not initialized!");
   _color = _chess.turn();
   const possibleNextMoves = _chess.moves();
