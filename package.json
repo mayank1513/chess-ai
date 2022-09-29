@@ -1,6 +1,6 @@
 {
   "name": "chess-ai",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A simple ChessAI to create single player chess game",
   "private": false,
   "main": "./index.js",
