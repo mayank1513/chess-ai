@@ -35,6 +35,7 @@ jobs:
           git push origin master
 
       - name: Publish tag to npm
+        id: npm
         if: contains(github.ref, 'tags')
         working-directory: ./build
         run: npm publish --access=public
@@ -43,9 +44,11 @@ jobs:
 
       - uses: actions/setup-node@v1
         with:
+          node-version: "16.x"
           registry-url: "https://npm.pkg.github.com"
 
       - name: Publish tag to GPR
+        if: steps.npm.outcome == 'success'
         working-directory: ./build
         run: npm publish --access=public
         env:
